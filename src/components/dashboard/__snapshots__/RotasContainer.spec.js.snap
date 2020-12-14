@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RotasContainer Snapshot test 1`] = `
+<v-container-stub tag="div"
+                  fluid="true"
+>
+  <v-row-stub tag="div">
+    <v-col-stub sm="12"
+                md="3"
+                tag="div"
+    >
+      <users-list-stub users="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]">
+      </users-list-stub>
+    </v-col-stub>
+    <v-col-stub sm="12"
+                md="9"
+                tag="div"
+    >
+      <rotas-calendar-stub selectedusers="[object Set]">
+      </rotas-calendar-stub>
+      <br>
+      <add-rota-stub today="2020-12-17">
+      </add-rota-stub>
+    </v-col-stub>
+  </v-row-stub>
+</v-container-stub>
+`;

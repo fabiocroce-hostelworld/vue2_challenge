@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert Snapshot test 1`] = `
+<div>
+  <v-alert-stub tag="div"
+                value="true"
+                closelabel="$vuetify.close"
+                dense="true"
+                dismissible="true"
+                closeicon="$cancel"
+                icon
+                text="true"
+                type="success"
+  >
+    {
+    "message": "Successful"
+    }
+  </v-alert-stub>
+  <v-alert-stub tag="div"
+                value="true"
+                closelabel="$vuetify.close"
+                dense="true"
+                dismissible="true"
+                closeicon="$cancel"
+                icon
+                text="true"
+                type="error"
+  >
+    {
+    "message": "Error"
+    }
+  </v-alert-stub>
+</div>
+`;

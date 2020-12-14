@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RotasCalendar - loaded rotas Snapshot test 1`] = `
+<v-sheet-stub height="500"
+              tag="div"
+>
+  <v-calendar-stub color="primary"
+                   now="2020-11-01"
+                   start="2020-11-01"
+                   weekdays="0,1,2,3,4,5,6"
+                   shortweekdays="true"
+                   events="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
+                   eventstart="start"
+                   eventend="end"
+                   eventtimed="timed"
+                   eventcategory="category"
+                   eventheight="20"
+                   eventcolor="function () { [native code] }"
+                   eventtextcolor="white"
+                   eventname="name"
+                   eventoverlapthreshold="60"
+                   eventoverlapmode="stack"
+                   eventmore="true"
+                   eventmoretext="$vuetify.calendar.moreEvents"
+                   eventmarginbottom="1"
+                   type="month"
+                   value="2020-11-01"
+                   localefirstdayofyear="0"
+                   minweeks="1"
+                   shortmonths="true"
+                   showmonthonfirst="true"
+                   maxdays="7"
+                   shortintervals="true"
+                   intervalheight="48"
+                   intervalwidth="60"
+                   intervalminutes="60"
+                   firstinterval="0"
+                   intervalcount="24"
+                   categories
+                   categoryforinvalid
+                   categorydays="1"
+  >
+  </v-calendar-stub>
+</v-sheet-stub>
+`;

@@ -1,0 +1,2 @@
+export const ALERT_TIMEOUT = 3000
+export const API_DEFAULT_TIMEOUT = 10000

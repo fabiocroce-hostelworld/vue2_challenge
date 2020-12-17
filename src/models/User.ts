@@ -1,4 +1,4 @@
-import { IUser } from "@/api/clavaAPI/rota/RotasResponseDTO"
+import { IUser } from "@/api/clavaAPI/rotasUsers/RotasResponseDTO"
 
 export class User {
   public userId: number

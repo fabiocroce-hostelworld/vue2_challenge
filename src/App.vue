@@ -3,10 +3,10 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue"
 import Dashboard from "@/pages/Dashboard.vue"
+import { defineComponent } from "@vue/composition-api"
 
-export default Vue.extend({
+export default defineComponent({
   name: "App",
   components: {
     Dashboard
@@ -16,10 +16,6 @@ export default Vue.extend({
 
 <style>
 #app {
-  font-family: Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   padding: 20px;
-  background-color: #fffef2;
 }
 </style>

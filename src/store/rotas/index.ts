@@ -1,5 +1,6 @@
 import { getRotaServices } from "@/api/clavaAPI"
-import { Rotas } from "@/models/Rotas"
+import { IRotas } from "@/api/clavaAPI/rota/RotasResponseDTO"
+import { IRotasList } from "@/api/clavaAPI/rotasUsers/RotasResponseDTO"
 import { addNamespacePrefix } from "@/utils/vuexHelpers"
 
 const types = {
@@ -19,13 +20,13 @@ const types = {
 export const rotasTypes = addNamespacePrefix(types, "rotas")
 
 type RotasState = {
-  rotas: Array<Rotas>
+  rotas: IRotasList
 }
 
 export default {
   namespaced: true,
   state: (): RotasState => ({
-    rotas: [] as Array<Rotas>
+    rotas: [] as IRotasList
   }),
   getters: {
     [types.getters.GET_ROTAS](state: RotasState) {
@@ -45,10 +46,10 @@ export default {
     }
   },
   mutations: {
-    [types.mutations.STORE_ROTAS]: (state: RotasState, rotas: Array<Rotas>) => {
+    [types.mutations.STORE_ROTAS]: (state: RotasState, rotas: IRotasList) => {
       state.rotas = rotas
     },
-    [types.mutations.STORE_ROTA]: (state: RotasState, rota: Rotas) => {
+    [types.mutations.STORE_ROTA]: (state: RotasState, rota: IRotas) => {
       state.rotas.push(rota)
     }
   }

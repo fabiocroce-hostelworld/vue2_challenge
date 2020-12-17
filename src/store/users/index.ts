@@ -1,4 +1,4 @@
-import { User } from "@/models/User"
+import { IUsersList } from "@/api/clavaAPI/rotasUsers/RotasResponseDTO"
 import { addNamespacePrefix } from "@/utils/vuexHelpers"
 
 const types = {
@@ -18,13 +18,13 @@ const types = {
 export const usersTypes = addNamespacePrefix(types, "users")
 
 type UsersState = {
-  users: Array<User>
+  users: IUsersList
 }
 
 export default {
   namespaced: true,
   state: (): UsersState => ({
-    users: [] as Array<User>
+    users: [] as IUsersList
   }),
   getters: {
     [types.getters.GET_USERS](state: UsersState) {
@@ -33,12 +33,12 @@ export default {
     [types.getters.GET_MAPPED_USERS](state: UsersState) {
       return Object.assign({}, ...state.users.map(user => ({ [user.userId]: user.user })))
     },
-    [types.getters.GET_USER_NAME](_: UsersState, getters: { [x: string]: Array<User> }) {
+    [types.getters.GET_USER_NAME](_: UsersState, getters: { [x: string]: IUsersList }) {
       return (userId: number) => getters[types.getters.GET_MAPPED_USERS][userId]
     }
   },
   mutations: {
-    [types.mutations.STORE_USERS]: (state: UsersState, users: Array<User>) => {
+    [types.mutations.STORE_USERS]: (state: UsersState, users: IUsersList) => {
       state.users = users
     }
   }

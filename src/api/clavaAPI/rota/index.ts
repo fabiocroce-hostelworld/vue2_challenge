@@ -6,7 +6,7 @@ import { GenerateResponseDTO } from "@/api/clavaAPI/rota/GenerateResponseDTO"
 export default class Client {
   constructor(private api: Api) {}
 
-  async fetchRota(rotaId: number): Promise<Rotas> {
+  async fetchRota(rotaId: number): Promise<IRotas> {
     const { data } = await this.api.get<IRotas>(`api/rota/${rotaId}`)
 
     return new Rotas(data)

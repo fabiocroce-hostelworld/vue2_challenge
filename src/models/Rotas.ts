@@ -10,7 +10,7 @@ class Period {
   }
 }
 
-export class Rota {
+class Rota {
   public userId: number
   public type: ShiftTypes
   public date: string

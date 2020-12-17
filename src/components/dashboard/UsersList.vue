@@ -28,20 +28,23 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue"
-import { reactive } from "@vue/composition-api"
+import { reactive, defineComponent, PropType } from "@vue/composition-api"
 import { User } from "@/models"
+import { IUsersList } from "@/api/clavaAPI/rotasUsers/RotasResponseDTO"
 
-type Users = Array<User>
 type SelectedUsers = { users: Array<number> }
 
-export default Vue.extend({
+interface Props {
+  users: IUsersList
+}
+
+export default defineComponent<Props>({
   name: "UsersList",
   props: {
     users: {
-      type: Array,
+      type: Array as PropType<IUsersList>,
       required: true,
-      validator: (prop: Users) => prop.every((user: User) => user instanceof User)
+      validator: (prop: IUsersList) => prop.every(user => user instanceof User)
     }
   },
   setup(_, { emit }) {
@@ -51,8 +54,8 @@ export default Vue.extend({
       emit("change", currentSelectedUsers.users)
     }
 
-    const toggleAll = (users: Users, currentSelectedUsers: SelectedUsers) => {
-      currentSelectedUsers.users = currentSelectedUsers.users.length ? [] : users.map((user: User) => user.userId)
+    const toggleAll = (users: IUsersList, currentSelectedUsers: SelectedUsers) => {
+      currentSelectedUsers.users = currentSelectedUsers.users.length ? [] : users.map(user => user.userId)
       emit("change", currentSelectedUsers.users)
     }
 

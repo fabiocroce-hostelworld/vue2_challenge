@@ -1,8 +1,3 @@
-export interface IUser {
-  userId: number
-  user: string
-}
-
 export interface IRotaPeriod {
   startDate: string
   endDate: string

@@ -1,16 +1,16 @@
 <template>
   <div>
-    <v-alert v-for="(alert, idx) in alerts" :key="idx" dense text :type="alert.type" @click="clearAlert(idx)" dismissible>
+    <v-alert v-for="(alert, idx) in alerts" :key="idx" dense text :type="alert.type" dismissible @click="clearAlert(idx)">
       {{ alert.message }}
     </v-alert>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from "vue"
+import { defineComponent } from "@vue/composition-api"
 import { AlertProvider, useAlert } from "@/providers/alertProvider"
 
-export default Vue.extend({
+export default defineComponent({
   name: "Alert",
   setup() {
     const { alerts, clearAlert } = useAlert() as AlertProvider

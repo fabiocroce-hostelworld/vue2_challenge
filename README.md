@@ -34,7 +34,7 @@ npm run lint
 * serviceCache - cache to load services as they are required
 * create a folder per API
 * create an instance of API per service and add service instance creation using serviceCache
-* services must return a model or a boolean
+* services must return a model whenever possible
 
 ### VIEW LAYER
 **pages**

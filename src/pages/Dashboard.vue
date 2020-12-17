@@ -8,15 +8,15 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue"
 import RotasContainer from "@/components/dashboard/RotasContainer.vue"
 import Alert from "@/components/helpers/Alert.vue"
 import { rootTypes } from "@/store"
 import { useStatus } from "@/hooks/useStatus"
 import { StoreProvider, useStore } from "@/providers/storeProvider"
 import { AlertProvider, useAlert } from "@/providers/alertProvider"
+import { defineComponent } from "@vue/composition-api"
 
-export default Vue.extend({
+export default defineComponent({
   name: "Dashboard",
   components: {
     RotasContainer,

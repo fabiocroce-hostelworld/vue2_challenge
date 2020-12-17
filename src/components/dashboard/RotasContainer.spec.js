@@ -24,8 +24,10 @@ describe("RotasContainer", () => {
     }
   })
 
-  it("Snapshot test", () => {
+  it("Snapshot test - 2020-12-17", async () => {
     const wrapper = shallowMount(RotasContainer, input)
+    wrapper.find("add-rota-stub").setProps({ today: "2020-12-17" })
+    await wrapper.vm.$nextTick()
 
     expect(wrapper.html()).toMatchSnapshot()
   })

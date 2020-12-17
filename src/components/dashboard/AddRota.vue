@@ -14,7 +14,7 @@
           <template v-slot:activator="{ on }">
             <v-text-field label="From Date" prepend-icon="mdi-calendar" readonly :value="date" v-on="on" />
           </template>
-          <v-date-picker :min="today" v-model="date" no-title @input="menu = false" />
+          <v-date-picker v-model="date" :min="today" no-title @input="menu = false" />
         </v-menu>
         <v-btn :loading="isFetching" class="generate-route mr-4 primary" @click="handleClick(date)">
           Generate Route
@@ -25,14 +25,17 @@
 </template>
 
 <script lang="ts">
-import { ref } from "@vue/composition-api"
+import { ref, defineComponent } from "@vue/composition-api"
 import { StoreProvider, useStore } from "@/providers/storeProvider"
 import { rotasTypes } from "@/store"
 import { AlertProvider, useAlert } from "@/providers/alertProvider"
 import { useStatus } from "@/hooks/useStatus"
-import Vue from "vue"
 
-export default Vue.extend({
+interface Props {
+  today: string
+}
+
+export default defineComponent<Props>({
   name: "AddRota",
   props: {
     today: {

@@ -5,7 +5,7 @@
       :now="startDate"
       :start="startDate"
       :value="startDate"
-      :events="events ? events.filter(rota => selectedUsers.has(rota.userId)) : []"
+      :events="selectedEvents"
       color="primary"
       type="month"
       :event-color="getEventColor"
@@ -14,25 +14,29 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue"
 import { usersTypes } from "@/store"
-import { computed } from "@vue/composition-api"
+import { computed, defineComponent, PropType, reactive } from "@vue/composition-api"
 import { ShiftTypes } from "@/api/clavaAPI/rota/RotasResponseDTO"
 import { rotasTypes } from "@/store"
 import { useStore, StoreProvider } from "@/providers/storeProvider"
-import { Rotas } from "@/models"
+import { IRotasList } from "@/api/clavaAPI/rotasUsers/RotasResponseDTO"
 
-export default Vue.extend({
+interface Props {
+  selectedUsers: Set<number>
+}
+
+export default defineComponent<Props>({
   name: "RotasCalendar",
   props: {
     selectedUsers: {
-      type: Set,
+      type: Set as PropType<Set<number>>,
       required: true
     }
   },
-  setup() {
+  setup(props) {
     const { store, reactiveGetter } = useStore() as StoreProvider
-    const rotas = reactiveGetter<Array<Rotas>>(rotasTypes.getters.GET_ROTAS)
+    const rotas = reactiveGetter<IRotasList>(rotasTypes.getters.GET_ROTAS)
+    const reactiveUsers = reactive(props)
 
     const getUserNameById = (userId: number) => store.getters[usersTypes.getters.GET_USER_NAME](userId)
 
@@ -57,9 +61,11 @@ export default Vue.extend({
       )
     })
 
+    const selectedEvents = computed(() => events.value.filter(rota => reactiveUsers.selectedUsers.has(rota.userId)))
+
     return {
       startDate,
-      events,
+      selectedEvents,
       /* istanbul ignore next */
       getEventColor(event: { color: string }) {
         return event.color

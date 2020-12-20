@@ -2,30 +2,12 @@
 
 exports[`Alert Snapshot test 1`] = `
 <div>
-  <v-alert-stub tag="div"
-                value="true"
-                closelabel="$vuetify.close"
-                dense="true"
-                dismissible="true"
-                closeicon="$cancel"
-                icon
-                text="true"
-                type="success"
-  >
+  <v-alert-stub tag="div" value="true" closelabel="$vuetify.close" dense="true" dismissible="true" closeicon="$cancel" icon="" text="true" type="success" class="alert">
     {
     "message": "Successful"
     }
   </v-alert-stub>
-  <v-alert-stub tag="div"
-                value="true"
-                closelabel="$vuetify.close"
-                dense="true"
-                dismissible="true"
-                closeicon="$cancel"
-                icon
-                text="true"
-                type="error"
-  >
+  <v-alert-stub tag="div" value="true" closelabel="$vuetify.close" dense="true" dismissible="true" closeicon="$cancel" icon="" text="true" type="error" class="alert">
     {
     "message": "Error"
     }

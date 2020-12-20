@@ -2,12 +2,25 @@
   <v-container fluid>
     <v-row>
       <v-col sm="12" md="3">
-        <users-list :users="users" @change="filterUsers($event, selectedUsers)" />
+        <users-list class="users-list" :users="users" @change="filterUsers($event, selectedUsers)" />
       </v-col>
       <v-col sm="12" md="9">
-        <rotas-calendar :selected-users="selectedUsers.users" />
+        <v-card>
+          <v-tabs v-model="tab">
+            <v-tab>Calendar</v-tab>
+            <v-tab>List</v-tab>
+          </v-tabs>
+          <v-tabs-items v-model="tab">
+            <v-tab-item class="tab-calendar">
+              <rotas-calendar class="rotas-calendar" :selected-users="selectedUsers.users" />
+            </v-tab-item>
+            <v-tab-item class="tab-list">
+              <rotas-list class="rotas-list" :selected-users="selectedUsers.users" />
+            </v-tab-item>
+          </v-tabs-items>
+        </v-card>
         <br />
-        <add-rota />
+        <add-rota class="add-rota" />
       </v-col>
     </v-row>
   </v-container>
@@ -15,8 +28,8 @@
 
 <script lang="ts">
 import { usersTypes } from "@/store"
-import { StoreProvider, useStore } from "@/providers/storeProvider"
-import { reactive, defineComponent } from "@vue/composition-api"
+import { useStore } from "@/providers/storeProvider"
+import { reactive, defineComponent, ref } from "@vue/composition-api"
 import RotasCalendar from "@/components/dashboard/RotasCalendar.vue"
 import UsersList from "@/components/dashboard/UsersList.vue"
 import AddRota from "@/components/dashboard/AddRota.vue"
@@ -27,11 +40,13 @@ export default defineComponent({
   components: {
     RotasCalendar,
     UsersList,
-    AddRota
+    AddRota,
+    RotasList: () => import("@/components/dashboard/RotasList.vue")
   },
   setup() {
-    const { reactiveGetter } = useStore() as StoreProvider
+    const { reactiveGetter } = useStore()!
     const selectedUsers = reactive<{ users: Set<number> }>({ users: new Set() })
+    const tab = ref(0)
 
     const users = reactiveGetter<IUsersList>(usersTypes.getters.GET_USERS)
 
@@ -42,7 +57,8 @@ export default defineComponent({
     return {
       users,
       selectedUsers,
-      filterUsers
+      filterUsers,
+      tab
     }
   }
 })

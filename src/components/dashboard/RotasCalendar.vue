@@ -1,6 +1,7 @@
 <template>
   <v-sheet height="500">
     <v-calendar
+      class="calendar"
       ref="calendar"
       :now="startDate"
       :start="startDate"
@@ -15,10 +16,10 @@
 
 <script lang="ts">
 import { usersTypes } from "@/store"
-import { computed, defineComponent, PropType, reactive } from "@vue/composition-api"
+import { computed, defineComponent, PropType } from "@vue/composition-api"
 import { ShiftTypes } from "@/api/clavaAPI/rota/RotasResponseDTO"
 import { rotasTypes } from "@/store"
-import { useStore, StoreProvider } from "@/providers/storeProvider"
+import { useStore } from "@/providers/storeProvider"
 import { IRotasList } from "@/api/clavaAPI/rotasUsers/RotasResponseDTO"
 
 interface Props {
@@ -34,9 +35,8 @@ export default defineComponent<Props>({
     }
   },
   setup(props) {
-    const { store, reactiveGetter } = useStore() as StoreProvider
+    const { store, reactiveGetter } = useStore()!
     const rotas = reactiveGetter<IRotasList>(rotasTypes.getters.GET_ROTAS)
-    const reactiveUsers = reactive(props)
 
     const getUserNameById = (userId: number) => store.getters[usersTypes.getters.GET_USER_NAME](userId)
 
@@ -61,7 +61,7 @@ export default defineComponent<Props>({
       )
     })
 
-    const selectedEvents = computed(() => events.value.filter(rota => reactiveUsers.selectedUsers.has(rota.userId)))
+    const selectedEvents = computed(() => events.value.filter(rota => props.selectedUsers.has(rota.userId)))
 
     return {
       startDate,

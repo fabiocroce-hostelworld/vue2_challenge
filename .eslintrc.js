@@ -5,7 +5,7 @@ module.exports = {
     jest: true
   },
   extends: [
-    "plugin:vue/recommended",
+    "plugin:vue/strongly-recommended",
     "eslint:recommended",
     "@vue/typescript/recommended",
     "@vue/prettier",
@@ -18,7 +18,8 @@ module.exports = {
     "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
     "@typescript-eslint/interface-name-prefix": "off",
-    "@typescript-eslint/no-explicit-any": ["error", { ignoreRestArgs: true }]
+    "@typescript-eslint/no-explicit-any": ["error", { ignoreRestArgs: true }],
+    "@typescript-eslint/no-non-null-assertion": "off"
   },
   overrides: [
     {

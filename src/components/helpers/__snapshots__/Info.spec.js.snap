@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Info Snapshot test 1`] = `
+<v-alert-stub tag="div" value="true" closelabel="$vuetify.close" dense="true" closeicon="$cancel" icon="" type="info">
+  test
+</v-alert-stub>
+`;

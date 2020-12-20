@@ -1,47 +1,39 @@
-import { ref, ComputedRef } from "@vue/composition-api"
+import { ref } from "@vue/composition-api"
 
-interface UseStatus {
-  resetFetch: () => void
-  startFetching: () => void
-  fetchSuccess: () => void
-  fetchError: () => void
-  isError: ComputedRef<boolean>
-  isFetching: ComputedRef<boolean>
-  isSuccess: ComputedRef<boolean>
-}
-
-// Fetch status util hook
-export const useStatus = (): UseStatus => {
-  const isFetching = ref(false)
+// Generic status util hook
+export const useStatus = () => {
+  const isLoading = ref(false)
   const isSuccess = ref(false)
   const isError = ref(false)
 
-  const resetFetch = () => {
-    isFetching.value = false
+  const statusReset = () => {
+    isLoading.value = false
     isSuccess.value = false
     isError.value = false
   }
 
-  const startFetching = () => {
-    isFetching.value = true
+  const statusLoading = () => {
+    isLoading.value = true
+    isSuccess.value = false
+    isError.value = false
   }
 
-  const fetchSuccess = () => {
+  const statusSuccess = () => {
     isSuccess.value = true
-    isFetching.value = false
+    isLoading.value = false
   }
 
-  const fetchError = () => {
+  const statusError = () => {
     isError.value = true
-    isFetching.value = false
+    isLoading.value = false
   }
 
   return {
-    resetFetch,
-    startFetching,
-    fetchSuccess,
-    fetchError,
-    isFetching,
+    statusReset,
+    statusLoading,
+    statusSuccess,
+    statusError,
+    isLoading,
     isSuccess,
     isError
   }

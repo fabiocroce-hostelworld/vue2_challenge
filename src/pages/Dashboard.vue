@@ -1,9 +1,9 @@
 <template>
   <v-app>
     <h1 class="primary--text">DASHBOARD</h1>
-    <alert />
-    <rotas-container v-if="isSuccess" />
-    <v-progress-circular v-if="isFetching" :size="70" color="primary" indeterminate />
+    <alert v-if="alerts.length" class="alerts" />
+    <rotas-container v-if="isSuccess" class="rotas-container" />
+    <v-progress-circular v-else :size="70" color="primary" indeterminate />
   </v-app>
 </template>
 
@@ -11,10 +11,10 @@
 import RotasContainer from "@/components/dashboard/RotasContainer.vue"
 import Alert from "@/components/helpers/Alert.vue"
 import { rootTypes } from "@/store"
-import { useStatus } from "@/hooks/useStatus"
-import { StoreProvider, useStore } from "@/providers/storeProvider"
-import { AlertProvider, useAlert } from "@/providers/alertProvider"
-import { defineComponent } from "@vue/composition-api"
+import { useFetch } from "@/hooks/complex/useFetch"
+import { useStore } from "@/providers/storeProvider"
+import { useAlert } from "@/providers/alertProvider"
+import { defineComponent, onMounted } from "@vue/composition-api"
 
 export default defineComponent({
   name: "Dashboard",
@@ -23,23 +23,19 @@ export default defineComponent({
     Alert
   },
   setup() {
-    const { store } = useStore() as StoreProvider
-    const { addSuccessAlert, addErrorAlert } = useAlert() as AlertProvider
-    const { startFetching, fetchSuccess, isSuccess, isFetching } = useStatus()
+    const { store } = useStore()!
+    const { addSuccessAlert, addErrorAlert, alerts } = useAlert()!
+    const { fetchData, isSuccess } = useFetch()
 
-    startFetching()
-
-    store
-      .dispatch(rootTypes.actions.FETCH_ROTAS_AND_USERS)
-      .then(() => {
-        addSuccessAlert("Rotas have been fetched successfully.")
-        fetchSuccess()
-      })
-      .catch(() => void addErrorAlert("Could not fetch rotas."))
+    onMounted(() => {
+      fetchData(() => store.dispatch(rootTypes.actions.FETCH_ROTAS_AND_USERS))
+        .then(() => void addSuccessAlert("Rotas have been fetched successfully."))
+        .catch(() => void addErrorAlert("Could not fetch rotas."))
+    })
 
     return {
-      isFetching,
-      isSuccess
+      isSuccess,
+      alerts: alerts.value
     }
   }
 })

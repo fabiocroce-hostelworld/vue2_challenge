@@ -1,31 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Dashboard Snapshot test - loading 1`] = `
+exports[`Dashboard Snapshot test - failed 1`] = `
 <v-app-stub id="app">
-  <h1 class="primary--text">
-    DASHBOARD
-  </h1>
-  <alert-stub>
-  </alert-stub>
-  <v-progress-circular-stub color="primary"
-                            indeterminate="true"
-                            rotate="0"
-                            size="70"
-                            width="4"
-                            value="0"
-  >
-  </v-progress-circular-stub>
+  <h1 class="primary--text">DASHBOARD</h1>
+  <!---->
+  <v-progress-circular-stub color="primary" indeterminate="true" rotate="0" size="70" width="4" value="0"></v-progress-circular-stub>
 </v-app-stub>
 `;
 
-exports[`Dashboard test dom elements if API call is successful 1`] = `
+exports[`Dashboard Snapshot test - loaded 1`] = `
 <v-app-stub id="app">
-  <h1 class="primary--text">
-    DASHBOARD
-  </h1>
-  <alert-stub>
-  </alert-stub>
-  <rotas-container-stub>
-  </rotas-container-stub>
+  <h1 class="primary--text">DASHBOARD</h1>
+  <!---->
+  <rotas-container-stub class="rotas-container"></rotas-container-stub>
+</v-app-stub>
+`;
+
+exports[`Dashboard Snapshot test - loading 1`] = `
+<v-app-stub id="app">
+  <h1 class="primary--text">DASHBOARD</h1>
+  <!---->
+  <v-progress-circular-stub color="primary" indeterminate="true" rotate="0" size="70" width="4" value="0"></v-progress-circular-stub>
 </v-app-stub>
 `;

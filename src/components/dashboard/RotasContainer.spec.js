@@ -24,23 +24,44 @@ describe("RotasContainer", () => {
     }
   })
 
-  it("Snapshot test - 2020-12-17", async () => {
+  it("Snapshot test - tab calendar", async () => {
     const wrapper = shallowMount(RotasContainer, input)
-    wrapper.find("add-rota-stub").setProps({ today: "2020-12-17" })
+    wrapper.find(".add-rota").setProps({ today: "2020-12-17" })
     await wrapper.vm.$nextTick()
+
+    expect(wrapper.html()).toMatchSnapshot()
+  })
+
+  it("Snapshot test - tab list", async () => {
+    const wrapper = shallowMount(RotasContainer, input)
+    wrapper.find(".tab-list").trigger("click")
 
     expect(wrapper.html()).toMatchSnapshot()
   })
 
   it("when change event emitted expect RotasDisplay to send selectedUsers to RotasCalendar", async () => {
     const wrapper = shallowMount(RotasContainer, input)
-    const usersListComponent = wrapper.find("users-list-stub")
+    const usersListComponent = wrapper.find(".users-list")
 
-    expect(wrapper.find("rotas-calendar-stub").props().selectedUsers).toEqual(new Set())
+    expect(wrapper.find(".rotas-calendar").props().selectedUsers).toEqual(new Set())
 
     await usersListComponent.vm.$emit("change", [1, 2])
 
-    expect(wrapper.find("rotas-calendar-stub").props().selectedUsers).toEqual(new Set([1, 2]))
+    expect(wrapper.find(".rotas-calendar").props().selectedUsers).toEqual(new Set([1, 2]))
+    expect(usersListComponent.props().users).toBe(rotaUsersMock.users)
+  })
+
+  it("when change event emitted expect RotasDisplay to send selectedUsers to RotasList", async () => {
+    const wrapper = shallowMount(RotasContainer, input)
+    wrapper.find(".tab-list").trigger("click")
+
+    const usersListComponent = wrapper.find(".users-list")
+
+    expect(wrapper.find(".rotas-list").props().selectedUsers).toEqual(new Set())
+
+    await usersListComponent.vm.$emit("change", [1, 2])
+
+    expect(wrapper.find(".rotas-list").props().selectedUsers).toEqual(new Set([1, 2]))
     expect(usersListComponent.props().users).toBe(rotaUsersMock.users)
   })
 })

@@ -1,9 +1,7 @@
 module.exports = {
   preset: "@vue/cli-plugin-unit-jest/presets/typescript-and-babel",
-  moduleFileExtensions: ["js", "json", "vue", "ts"],
-  transform: {
-    ".*\\.(vue)$": "vue-jest"
-  },
+  setupFiles: ["<rootDir>/setupTests.js"],
+  testMatch: ["**/*.spec.[jt]s?(x)"],
   collectCoverage: true,
   coverageDirectory: "coverage",
   coverageReporters: ["text"],
@@ -18,8 +16,5 @@ module.exports = {
     "!<rootDir>/src/App.vue",
     "!<rootDir>/src/plugins/**"
   ],
-  snapshotSerializers: ["jest-serializer-html"],
-  testMatch: ["**/*.spec.[jt]s?(x)"],
-  resetMocks: true,
-  setupFiles: ["<rootDir>/setupTests.js"]
+  resetMocks: true
 }

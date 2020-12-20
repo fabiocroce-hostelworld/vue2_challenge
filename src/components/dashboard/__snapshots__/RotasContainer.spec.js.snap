@@ -1,26 +1,56 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RotasContainer Snapshot test - 2020-12-17 1`] = `
-<v-container-stub tag="div"
-                  fluid="true"
->
+exports[`RotasContainer Snapshot test - tab calendar 1`] = `
+<v-container-stub tag="div" fluid="true">
   <v-row-stub tag="div">
-    <v-col-stub sm="12"
-                md="3"
-                tag="div"
-    >
-      <users-list-stub users="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]">
-      </users-list-stub>
+    <v-col-stub sm="12" md="3" tag="div">
+      <users-list-stub users="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]" class="users-list"></users-list-stub>
     </v-col-stub>
-    <v-col-stub sm="12"
-                md="9"
-                tag="div"
-    >
-      <rotas-calendar-stub selectedusers="[object Set]">
-      </rotas-calendar-stub>
-      <br>
-      <add-rota-stub today="2020-12-17">
-      </add-rota-stub>
+    <v-col-stub sm="12" md="9" tag="div">
+      <v-card-stub loaderheight="4" tag="div">
+        <v-tabs-stub value="0" activeclass="" nexticon="$next" previcon="$prev" slidersize="2">
+          <v-tab-stub ripple="true">Calendar</v-tab-stub>
+          <v-tab-stub ripple="true">List</v-tab-stub>
+        </v-tabs-stub>
+        <v-tabs-items-stub value="0" activeclass="v-window-item--active" nexticon="$next" previcon="$prev">
+          <v-tab-item-stub class="tab-calendar">
+            <rotas-calendar-stub selectedusers="[object Set]" class="rotas-calendar"></rotas-calendar-stub>
+          </v-tab-item-stub>
+          <v-tab-item-stub class="tab-list">
+            <!---->
+          </v-tab-item-stub>
+        </v-tabs-items-stub>
+      </v-card-stub> <br>
+      <add-rota-stub today="2020-12-17" class="add-rota"></add-rota-stub>
+    </v-col-stub>
+  </v-row-stub>
+</v-container-stub>
+`;
+
+exports[`RotasContainer Snapshot test - tab list 1`] = `
+<v-container-stub tag="div" fluid="true">
+  <v-row-stub tag="div">
+    <v-col-stub sm="12" md="3" tag="div">
+      <users-list-stub users="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]" class="users-list"></users-list-stub>
+    </v-col-stub>
+    <v-col-stub sm="12" md="9" tag="div">
+      <v-card-stub loaderheight="4" tag="div">
+        <v-tabs-stub value="0" activeclass="" nexticon="$next" previcon="$prev" slidersize="2">
+          <v-tab-stub ripple="true">Calendar</v-tab-stub>
+          <v-tab-stub ripple="true">List</v-tab-stub>
+        </v-tabs-stub>
+        <v-tabs-items-stub value="0" activeclass="v-window-item--active" nexticon="$next" previcon="$prev">
+          <v-tab-item-stub class="tab-calendar">
+            <rotas-calendar-stub selectedusers="[object Set]" class="rotas-calendar"></rotas-calendar-stub>
+          </v-tab-item-stub>
+          <v-tab-item-stub class="tab-list">
+            <v-card-stub loaderheight="4" tag="div" class="rotas-list">
+              <info-stub message="Select users to display the shifts" class="info"></info-stub>
+            </v-card-stub>
+          </v-tab-item-stub>
+        </v-tabs-items-stub>
+      </v-card-stub> <br>
+      <add-rota-stub today="2020-12-20" class="add-rota"></add-rota-stub>
     </v-col-stub>
   </v-row-stub>
 </v-container-stub>

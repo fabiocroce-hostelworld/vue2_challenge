@@ -16,7 +16,7 @@
           </template>
           <v-date-picker v-model="date" :min="today" no-title @input="menu = false" />
         </v-menu>
-        <v-btn :loading="isFetching" class="generate-route mr-4 primary" @click="handleClick(date)">
+        <v-btn :loading="isFetching" :disabled="isFetching" class="generate-route mr-4 primary" @click="handleClick(date)">
           Generate Route
         </v-btn>
       </v-form>
@@ -26,10 +26,10 @@
 
 <script lang="ts">
 import { ref, defineComponent } from "@vue/composition-api"
-import { StoreProvider, useStore } from "@/providers/storeProvider"
+import { useStore } from "@/providers/storeProvider"
 import { rotasTypes } from "@/store"
-import { AlertProvider, useAlert } from "@/providers/alertProvider"
-import { useStatus } from "@/hooks/useStatus"
+import { useAlert } from "@/providers/alertProvider"
+import { useFetch } from "@/hooks/complex/useFetch"
 
 interface Props {
   today: string
@@ -45,20 +45,17 @@ export default defineComponent<Props>({
     }
   },
   setup({ today }) {
-    const { store } = useStore() as StoreProvider
-    const { addSuccessAlert, addErrorAlert } = useAlert() as AlertProvider
-    const { startFetching, resetFetch, isFetching } = useStatus()
+    const { store } = useStore()!
+    const { addSuccessAlert, addErrorAlert } = useAlert()!
+    const { fetchData, isFetching } = useFetch()
 
     const date = ref(today)
     const menu = ref(false)
 
-    const handleClick = async (selectedDate: string) => {
-      startFetching()
-      store
-        .dispatch(rotasTypes.actions.GENERATE_ROTA, selectedDate)
+    const handleClick = (selectedDate: string) => {
+      fetchData(() => store.dispatch(rotasTypes.actions.GENERATE_ROTA, selectedDate))
         .then(() => void addSuccessAlert("Rota added succesfully."))
         .catch(() => void addErrorAlert("Could not add the rota for that date."))
-        .finally(() => void resetFetch())
     }
 
     return {

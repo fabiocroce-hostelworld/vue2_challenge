@@ -24,7 +24,7 @@ export interface AlertProvider {
 type alertConfig = { timeout?: number }
 
 // Store for alert messages
-export const setupAlertProvider = (config: alertConfig = {}): AlertProvider => {
+export const setupAlertProvider = (config: alertConfig = {}): NonNullable<AlertProvider> => {
   const alertsArray = reactive<{ alerts: Array<Alert> }>({ alerts: [] })
 
   const clearByTimerId = (removeTimerId: number) => {

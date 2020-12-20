@@ -30,7 +30,7 @@ describe("Alert", () => {
   it("check for Alert component props", () => {
     const wrapper = shallowMount(Alert, input)
 
-    const elements = wrapper.findAll("v-alert-stub")
+    const elements = wrapper.findAll(".alert")
     expect(elements.at(0).props().type).toBe(alertTypes.SUCCESS)
 
     expect(elements.at(1).props().type).toBe(alertTypes.ERROR)
@@ -41,7 +41,7 @@ describe("Alert", () => {
 
     expect(alertProvider.alerts.value.length).toBe(2)
 
-    await wrapper.find("v-alert-stub").vm.$emit("click")
+    await wrapper.find(".alert").vm.$emit("click")
 
     expect(alertProvider.alerts.value.length).toBe(1)
   })

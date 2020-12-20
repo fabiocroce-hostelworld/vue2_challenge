@@ -1,6 +1,15 @@
 <template>
   <div>
-    <v-alert v-for="(alert, idx) in alerts" :key="idx" dense text :type="alert.type" dismissible @click="clearAlert(idx)">
+    <v-alert
+      v-for="(alert, idx) in alerts"
+      :key="idx"
+      dense
+      text
+      :type="alert.type"
+      class="alert"
+      dismissible
+      @click="clearAlert(idx)"
+    >
       {{ alert.message }}
     </v-alert>
   </div>

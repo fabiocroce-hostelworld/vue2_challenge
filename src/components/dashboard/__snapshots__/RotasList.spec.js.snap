@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RotasList Snapshot test - with warning empty users 1`] = `
+<v-card-stub loaderheight="4" tag="div">
+  <info-stub message="Select users to display the shifts" class="info"></info-stub>
+</v-card-stub>
+`;
+
+exports[`RotasList Snapshot test 1`] = `
+<v-card-stub loaderheight="4" tag="div">
+  <v-expansion-panels-stub activeclass="v-item--active" multiple="true" accordion="true" class="m-4">
+    <v-expansion-panel-stub expand="" class="rota-dates px-5">
+      <v-expansion-panel-header-stub expandicon="$expand" class="rota-date"> 2020-11-02</v-expansion-panel-header-stub>
+      <v-expansion-panel-content-stub>
+        <v-chip-stub activeclass="" tag="span" active="true" closeicon="$delete" filtericon="$complete" class="secondary mr-2">Morning</v-chip-stub><span class="morning">Ann Doe</span>
+      </v-expansion-panel-content-stub>
+      <!---->
+    </v-expansion-panel-stub>
+    <v-expansion-panel-stub expand="" class="rota-dates px-5">
+      <v-expansion-panel-header-stub expandicon="$expand" class="rota-date"> 2020-11-03</v-expansion-panel-header-stub>
+      <v-expansion-panel-content-stub>
+        <v-chip-stub activeclass="" tag="span" active="true" closeicon="$delete" filtericon="$complete" class="secondary mr-2">Morning</v-chip-stub><span class="morning">Nicole Woo</span>
+      </v-expansion-panel-content-stub>
+      <!---->
+    </v-expansion-panel-stub>
+    <v-expansion-panel-stub expand="" class="rota-dates px-5">
+      <v-expansion-panel-header-stub expandicon="$expand" class="rota-date"> 2020-11-06</v-expansion-panel-header-stub>
+      <!---->
+      <v-expansion-panel-content-stub>
+        <v-chip-stub activeclass="" tag="span" active="true" closeicon="$delete" filtericon="$complete" class="primary mr-2">Afternoon</v-chip-stub><span class="afternoon">Nicole Woo</span>
+      </v-expansion-panel-content-stub>
+    </v-expansion-panel-stub>
+    <v-expansion-panel-stub expand="" class="rota-dates px-5">
+      <v-expansion-panel-header-stub expandicon="$expand" class="rota-date"> 2020-11-07</v-expansion-panel-header-stub>
+      <!---->
+      <v-expansion-panel-content-stub>
+        <v-chip-stub activeclass="" tag="span" active="true" closeicon="$delete" filtericon="$complete" class="primary mr-2">Afternoon</v-chip-stub><span class="afternoon">Ann Doe</span>
+      </v-expansion-panel-content-stub>
+    </v-expansion-panel-stub>
+    <v-expansion-panel-stub expand="" class="rota-dates px-5">
+      <v-expansion-panel-header-stub expandicon="$expand" class="rota-date"> 2020-11-09</v-expansion-panel-header-stub>
+      <!---->
+      <v-expansion-panel-content-stub>
+        <v-chip-stub activeclass="" tag="span" active="true" closeicon="$delete" filtericon="$complete" class="primary mr-2">Afternoon</v-chip-stub><span class="afternoon">Nicole Woo</span>
+      </v-expansion-panel-content-stub>
+    </v-expansion-panel-stub>
+    <v-expansion-panel-stub expand="" class="rota-dates px-5">
+      <v-expansion-panel-header-stub expandicon="$expand" class="rota-date"> 2020-11-12</v-expansion-panel-header-stub>
+      <!---->
+      <v-expansion-panel-content-stub>
+        <v-chip-stub activeclass="" tag="span" active="true" closeicon="$delete" filtericon="$complete" class="primary mr-2">Afternoon</v-chip-stub><span class="afternoon">Ann Doe</span>
+      </v-expansion-panel-content-stub>
+    </v-expansion-panel-stub>
+    <v-expansion-panel-stub expand="" class="rota-dates px-5">
+      <v-expansion-panel-header-stub expandicon="$expand" class="rota-date"> 2020-11-13</v-expansion-panel-header-stub>
+      <!---->
+      <v-expansion-panel-content-stub>
+        <v-chip-stub activeclass="" tag="span" active="true" closeicon="$delete" filtericon="$complete" class="primary mr-2">Afternoon</v-chip-stub><span class="afternoon">Nicole Woo</span>
+      </v-expansion-panel-content-stub>
+    </v-expansion-panel-stub>
+    <v-expansion-panel-stub expand="" class="rota-dates px-5">
+      <v-expansion-panel-header-stub expandicon="$expand" class="rota-date"> 2020-11-18</v-expansion-panel-header-stub>
+      <v-expansion-panel-content-stub>
+        <v-chip-stub activeclass="" tag="span" active="true" closeicon="$delete" filtericon="$complete" class="secondary mr-2">Morning</v-chip-stub><span class="morning">Nicole Woo</span>
+      </v-expansion-panel-content-stub>
+      <!---->
+    </v-expansion-panel-stub>
+    <v-expansion-panel-stub expand="" class="rota-dates px-5">
+      <v-expansion-panel-header-stub expandicon="$expand" class="rota-date"> 2020-11-19</v-expansion-panel-header-stub>
+      <v-expansion-panel-content-stub>
+        <v-chip-stub activeclass="" tag="span" active="true" closeicon="$delete" filtericon="$complete" class="secondary mr-2">Morning</v-chip-stub><span class="morning">Ann Doe</span>
+      </v-expansion-panel-content-stub>
+      <!---->
+    </v-expansion-panel-stub>
+  </v-expansion-panels-stub>
+</v-card-stub>
+`;

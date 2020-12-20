@@ -40,7 +40,7 @@ describe("RotasCalendar - loaded rotas", () => {
     }
     const wrapper = shallowMount(RotasCalendar, input)
 
-    const calendar = wrapper.find("v-calendar-stub")
+    const calendar = wrapper.find(".calendar")
     const props = calendar.props()
 
     expect(props.now).toBe("2020-11-01")
@@ -53,7 +53,7 @@ describe("RotasCalendar - loaded rotas", () => {
     }
     const wrapper = shallowMount(RotasCalendar, input)
 
-    const calendar = wrapper.find("v-calendar-stub")
+    const calendar = wrapper.find(".calendar")
     const props = calendar.props()
 
     expect(props.now).toBe("2020-11-01")

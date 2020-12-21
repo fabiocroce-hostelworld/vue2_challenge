@@ -1,6 +1,6 @@
 interface VuexTypes {
-  [index: string]: {
-    [index2: string]: string
+  [method: string]: {
+    [name: string]: string
   }
 }
 

@@ -55,7 +55,7 @@ export default defineComponent<Props>({
     const { store, reactiveGetter } = useStore()!
     const rotas = reactiveGetter<IRotasList>(rotasTypes.getters.GET_ROTAS)
 
-    const getUserNameById = (userId: number) => store.getters[usersTypes.getters.GET_USER_NAME](userId)
+    const getUserNameById = (userId: number) => store.getters[usersTypes.getters.GET_USER_NAME_BY_ID](userId)
 
     const mappedEvents = computed<MappedEvents>(() => {
       return rotas.value.flatMap(thisRota =>
@@ -73,12 +73,11 @@ export default defineComponent<Props>({
 
     const selectedEvents = computed(() =>
       mappedEvents.value.filter(mappedEvent => {
-        const mornminguser = mappedEvent[1][ShiftTypes.MORNING]
+        const morningUser = mappedEvent[1][ShiftTypes.MORNING]
         const afternoonUser = mappedEvent[1][ShiftTypes.AFTERNOON]
 
         return (
-          (mornminguser && props.selectedUsers.has(mornminguser)) ||
-          (afternoonUser && props.selectedUsers.has(afternoonUser))
+          (morningUser && props.selectedUsers.has(morningUser)) || (afternoonUser && props.selectedUsers.has(afternoonUser))
         )
       })
     )

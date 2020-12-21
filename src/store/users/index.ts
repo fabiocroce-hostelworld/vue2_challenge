@@ -5,7 +5,7 @@ const types = {
   getters: {
     GET_USERS: "getUsers",
     GET_MAPPED_USERS: "getMappedUsers",
-    GET_USER_NAME: "getUserName"
+    GET_USER_NAME_BY_ID: "getUserNameById"
   },
   mutations: {
     STORE_USERS: "STORE_USERS"
@@ -33,7 +33,7 @@ export default {
     [types.getters.GET_MAPPED_USERS](state: UsersState) {
       return Object.assign({}, ...state.users.map(user => ({ [user.userId]: user.user })))
     },
-    [types.getters.GET_USER_NAME](_: UsersState, getters: { [x: string]: IUsersList }) {
+    [types.getters.GET_USER_NAME_BY_ID](_: UsersState, getters: { [getterName: string]: IUsersList }) {
       return (userId: number) => getters[types.getters.GET_MAPPED_USERS][userId]
     }
   },

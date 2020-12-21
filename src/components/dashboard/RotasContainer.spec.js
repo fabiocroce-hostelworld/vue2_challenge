@@ -34,6 +34,7 @@ describe("RotasContainer", () => {
 
   it("Snapshot test - tab list", async () => {
     const wrapper = shallowMount(RotasContainer, input)
+    wrapper.find(".add-rota").setProps({ today: "2020-12-17" })
     wrapper.find(".tab-list").trigger("click")
 
     expect(wrapper.html()).toMatchSnapshot()

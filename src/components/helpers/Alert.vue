@@ -17,12 +17,12 @@
 
 <script lang="ts">
 import { defineComponent } from "@vue/composition-api"
-import { AlertProvider, useAlert } from "@/providers/alertProvider"
+import { useAlert } from "@/providers/alertProvider"
 
 export default defineComponent({
   name: "Alert",
   setup() {
-    const { alerts, clearAlert } = useAlert() as AlertProvider
+    const { alerts, clearAlert } = useAlert()!
 
     return {
       alerts,

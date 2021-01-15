@@ -50,7 +50,7 @@ exports[`RotasContainer Snapshot test - tab list 1`] = `
           </v-tab-item-stub>
         </v-tabs-items-stub>
       </v-card-stub> <br>
-      <add-rota-stub today="2020-12-20" class="add-rota"></add-rota-stub>
+      <add-rota-stub today="2020-12-21" class="add-rota"></add-rota-stub>
     </v-col-stub>
   </v-row-stub>
 </v-container-stub>

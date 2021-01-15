@@ -38,7 +38,7 @@ export default defineComponent<Props>({
     const { store, reactiveGetter } = useStore()!
     const rotas = reactiveGetter<IRotasList>(rotasTypes.getters.GET_ROTAS)
 
-    const getUserNameById = (userId: number) => store.getters[usersTypes.getters.GET_USER_NAME](userId)
+    const getUserNameById = (userId: number) => store.getters[usersTypes.getters.GET_USER_NAME_BY_ID](userId)
 
     const startDate = computed(() => rotas.value[0]?.period.startDate)
     const events = computed(() => {

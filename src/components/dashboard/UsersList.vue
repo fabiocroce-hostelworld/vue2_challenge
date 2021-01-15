@@ -4,11 +4,11 @@
     <v-card-text>
       <v-list>
         <v-list-item-group v-model="selectedUsers.users" multiple @change="handleChange(selectedUsers)">
-          <template v-for="(item, i) in users">
-            <v-list-item :key="`item-${i}`" :value="item.userId" active-class="primary--text">
+          <template v-for="(user, i) in users">
+            <v-list-item :key="i" :value="user.userId" active-class="primary--text">
               <template v-slot:default="{ active }">
                 <v-list-item-content>
-                  <v-list-item-title v-text="item.user"></v-list-item-title>
+                  <v-list-item-title v-text="user.user"></v-list-item-title>
                 </v-list-item-content>
 
                 <v-list-item-action>
